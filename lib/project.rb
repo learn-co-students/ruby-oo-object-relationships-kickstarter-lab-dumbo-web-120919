@@ -6,6 +6,16 @@ class Project
     end
 
     def add_backer(backer)
-        ProjectBacker.new(self,backer)
+        ProjectBacker.new(self, backer)
+    end
+
+    def backers
+        backer_array = ProjectBacker.all.select do |project_instance|
+            project_instance.project == self
+        end
+
+        backer_array.map do |project_instance|
+             project_instance.backer
+        end
     end
 end

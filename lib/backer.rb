@@ -12,11 +12,10 @@ class Backer
         backer_array = ProjectBacker.all.select do |project|
             project.backer == self
         end
-        result = []
-        backer_array.map do |backer|
-            result << backer  #.reject(nill)
-        end
 
+        backer_array.map do |project_instance|
+             project_instance.project
+        end
     end
 end
 
